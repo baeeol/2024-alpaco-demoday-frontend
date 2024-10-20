@@ -1,0 +1,28 @@
+.chatBoardContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.chatBoardContainer::-webkit-scrollbar {
+  width: 4px;
+}
+
+.chatBoardContainer::-webkit-scrollbar-track {
+  background-color: #ffffff;
+  border-radius: 15px;
+}
+
+.chatBoardContainer::-webkit-scrollbar-thumb {
+  background-color: #f95454;
+  border-radius: 15px;
+}
+
+.chatBoard {
+  max-width: 750px;
+  width: 100%;
+  padding: 0rem 0.8rem 0rem 1.2rem;
+}

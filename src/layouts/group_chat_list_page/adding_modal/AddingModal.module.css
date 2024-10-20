@@ -1,0 +1,61 @@
+.addingModal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+.title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: 0rem 0rem 3rem 0rem;
+  color: #fd6262;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 9rem;
+}
+
+.actionButtonContainer {
+  width: 100%;
+  display: flex;
+  margin: 2.5rem 0rem 0rem 0rem;
+}
+
+.actionButton {
+  outline: none;
+  border: none;
+  font-size: 1.3rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.1rem 0rem 0.1rem 0rem;
+  border-radius: 8px;
+}
+
+.actionButton:nth-child(n + 2) {
+  margin: 0rem 0rem 0rem 1rem;
+}
+
+.submitButton {
+  width: 100%;
+  color: #ffffff;
+  background-color: #fd6262;
+}
+
+.submitButton:hover {
+  background-color: #ee4c4c;
+}
+
+.cancelButton {
+  width: 100%;
+  border: 3px solid #fd6262;
+  background: none;
+  color: #363636;
+}
+
+.cancelButton:hover {
+  background-color: #f3f3f3;
+}

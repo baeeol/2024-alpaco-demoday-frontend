@@ -1,0 +1,35 @@
+.messageContainer {
+  width: 100%;
+}
+
+.messageContainer:nth-child(n + 2) {
+  margin: 2.6rem 0px 0px 0px;
+}
+
+.myMessageContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.otherMessageContainer {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.message {
+  border-radius: 15px;
+  padding: 0.8rem 1.2rem 0.8rem 1.2rem;
+  max-width: 80%;
+  font-weight: 450;
+  white-space: pre-wrap;
+}
+
+.otherMessage {
+  color: #1d1d1d;
+  background-color: #eeeeee;
+}
+
+.myMessage {
+  color: #f0f0f0;
+  background-color: #f95454;
+}

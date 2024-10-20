@@ -1,0 +1,56 @@
+.groupChatSummary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.2rem 0.8rem 0.4rem;
+  text-decoration: none;
+}
+
+.groupChatSummary:nth-child(1) {
+  border-top: 1px solid #757575;
+}
+
+.groupChatSummary:nth-child(n + 1) {
+  border-bottom: 1px solid #757575;
+}
+
+.groupChatSummary:hover {
+  background-color: #f8f8f8;
+}
+
+.groupChatDescription {
+  width: 85%;
+}
+
+.title {
+  width: 100%;
+  color: #1d1d1d;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin: 0rem 0rem 0.5rem 0rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: break-all;
+  overflow: hidden;
+}
+
+.tag {
+  color: #757575;
+  font-size: 1rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: break-all;
+  overflow: hidden;
+}
+
+.entryButton {
+  background-color: #f95454;
+}
+
+.groupChatIcon {
+  transform: scale(2.1);
+  color: #f95454;
+  border: 1px solid #f95454;
+  border-radius: 5px;
+  padding: 0.1rem;
+}
