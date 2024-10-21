@@ -9,8 +9,11 @@ import { Link } from "react-router-dom";
 import ChatIcon from "@mui/icons-material/Chat";
 import styles from "./HomePage.module.css";
 
+const MESSAGE_HISTORY_RANGE = 10;
+
 function HomePage() {
   const [chatList, setChatList] = useState([]);
+  const [messageHistory, setMessageHistory] = useState([]);
   const [message, setMessage] = useState("");
 
   useEffect(() => {
@@ -48,7 +51,13 @@ function HomePage() {
             value={message}
             onChangeHandler={setMessage}
             onSendHandler={() => {
-              sendMessageHandler(message, setMessage, setChatList);
+              sendMessageHandler(
+                message,
+                setMessage,
+                setChatList,
+                messageHistory,
+                setMessageHistory
+              );
             }}
             SendIcon={MapsUgcIcon}
             options={{ isAllowEmptyMessage: false }}
@@ -59,22 +68,38 @@ function HomePage() {
   );
 }
 
-async function sendMessageHandler(message, setMessage, setChatList) {
+async function sendMessageHandler(
+  message,
+  setMessage,
+  setChatList,
+  messageHistory,
+  setMessageHistory
+) {
   // 자신의 메시지 채팅창에 표시
   setChatList((prev) => {
     return [...prev].concat({ type: "text", speakerIsMe: true, data: { text: message } });
   });
   setMessage("");
 
+  console.log(messageHistory);
+
   // 챗봇의 메시지를 가져올때까지 ... / 가져온 후 메시지 표시
   setChatList((prev) => {
     return [...prev].concat({ type: "text", speakerIsMe: false, data: { text: "..." } });
   });
-  const chatbotResponse = await ChatbotRequest.getChatbotResponse(message);
+  const chatbotResponse = await ChatbotRequest.getChatbotResponse(
+    message,
+    messageHistory
+  );
   setChatList((prev) => {
     return [...prev]
       .slice(0, -1)
       .concat({ type: "text", speakerIsMe: false, data: { text: chatbotResponse } });
+  });
+
+  // 메시지 히스토리 저장
+  setMessageHistory((prev) => {
+    return [...prev].slice(-(MESSAGE_HISTORY_RANGE - 1)).concat(message);
   });
 }
 
