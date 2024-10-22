@@ -1,0 +1,25 @@
+.link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.icon {
+  margin: 0rem 0rem 0.7rem 0rem;
+  color: #f95454;
+  transform: scale(1.8);
+}
+
+.currentPageIcon {
+  color: #f95454;
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: 400;
+  text-align: center;
+  color: #000000;
+}

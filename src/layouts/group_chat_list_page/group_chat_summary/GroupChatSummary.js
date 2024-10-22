@@ -6,6 +6,7 @@ import TranslateIcon from "@mui/icons-material/Translate";
 // import ApartmentIcon from "@mui/icons-material/Apartment";
 // import ColorLensIcon from "@mui/icons-material/ColorLens";
 // import MedicationIcon from "@mui/icons-material/Medication";
+import ChatIcon from "@mui/icons-material/Chat";
 import { Link } from "react-router-dom";
 import styles from "./GroupChatSummary.module.css";
 
@@ -23,7 +24,7 @@ function GroupChatSummary({ id, name, tag }) {
 
 function getRandomChatIcon() {
   const iconList = [
-    TranslateIcon,
+    ChatIcon,
     // CalculateIcon,
     // ScienceIcon,
     // SportsCricketIcon,

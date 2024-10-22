@@ -1,4 +1,26 @@
+.navigationContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 .navigation {
-  height: 3rem;
-  padding: 0.2rem 1rem 0rem 1rem;
+  display: flex;
+  max-width: 750px;
+  width: 100%;
+  padding: 0.9rem 1.2rem 0.9rem 0rem;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.menuButton {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menuIcon {
+  color: #f95454;
+  transform: scale(1.8);
 }

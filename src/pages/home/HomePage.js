@@ -1,12 +1,8 @@
-import PageTemplate from "components/page/PageTemplate";
 import { Message, ChatBoard } from "components";
 import { SendingTextarea } from "components";
 import MapsUgcIcon from "@mui/icons-material/MapsUgc";
-import Navigation from "pages/semantic/navigation/Navigation";
 import { useState, useEffect } from "react";
 import ChatbotRequest from "api/ChatbotRequest";
-import { Link } from "react-router-dom";
-import ChatIcon from "@mui/icons-material/Chat";
 import styles from "./HomePage.module.css";
 
 const MESSAGE_HISTORY_RANGE = 10;
@@ -26,45 +22,36 @@ function HomePage() {
   }, [message]);
 
   return (
-    <PageTemplate isFullScreen={true}>
-      <Navigation>
-        <div className={styles.gotoGroupChatContainer}>
-          <Link to="/group-chat" className={styles.gotoGroupChatNav}>
-            <ChatIcon className={styles.gotoGroupChatIcon} />
-          </Link>
-        </div>
-      </Navigation>
-      <div className={styles.homePage}>
-        <ChatBoard scrollDownTriger={chatList}>
-          {chatList.map((chat, idx) => {
-            return (
-              <Message key={idx} isMyMessage={chat.speakerIsMe}>
-                {chat.data.text}
-              </Message>
+    <div className={styles.homePage}>
+      <ChatBoard scrollDownTriger={chatList}>
+        {chatList.map((chat, idx) => {
+          return (
+            <Message key={idx} isMyMessage={chat.speakerIsMe}>
+              {chat.data.text}
+            </Message>
+          );
+        })}
+      </ChatBoard>
+      <div className={styles.messageInput}>
+        <SendingTextarea
+          maxRows={4}
+          placeholder={"무엇을 알고 싶으신가요?"}
+          value={message}
+          onChangeHandler={setMessage}
+          onSendHandler={() => {
+            sendMessageHandler(
+              message,
+              setMessage,
+              setChatList,
+              messageHistory,
+              setMessageHistory
             );
-          })}
-        </ChatBoard>
-        <div className={styles.messageInput}>
-          <SendingTextarea
-            maxRows={4}
-            placeholder={"궁금하신 것이 있으신가요?"}
-            value={message}
-            onChangeHandler={setMessage}
-            onSendHandler={() => {
-              sendMessageHandler(
-                message,
-                setMessage,
-                setChatList,
-                messageHistory,
-                setMessageHistory
-              );
-            }}
-            SendIcon={MapsUgcIcon}
-            options={{ isAllowEmptyMessage: false }}
-          />
-        </div>
+          }}
+          SendIcon={MapsUgcIcon}
+          options={{ isAllowEmptyMessage: false }}
+        />
       </div>
-    </PageTemplate>
+    </div>
   );
 }
 

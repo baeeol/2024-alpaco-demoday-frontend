@@ -1,11 +1,8 @@
-import PageTemplate from "components/page/PageTemplate";
 import { GroupChatSummary, AddingModal } from "layouts/group_chat_list_page";
-import SmartToyIcon from "@mui/icons-material/SmartToy";
 import { SendingInput } from "components";
-import Navigation from "pages/semantic/navigation/Navigation";
 import SearchIcon from "@mui/icons-material/Search";
 import { useEffect, useState } from "react";
-import { useSearchParams, Link } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import GroupChatRequest from "api/GroupChatRequest";
 import styles from "./GroupChatListPage.module.css";
 
@@ -45,14 +42,7 @@ function GroupChatListPage() {
   };
 
   return (
-    <PageTemplate isFullScreen={true}>
-      <Navigation>
-        <div className={styles.gotoChatbotContainer}>
-          <Link to="/" className={styles.gotoChatbotNav}>
-            <SmartToyIcon className={styles.gotoChatbotIcon} />
-          </Link>
-        </div>
-      </Navigation>
+    <>
       <AddingModal
         isOpen={isAddingModalOpen}
         onCloseHandler={() => setIsAddingModalOpen(false)}
@@ -95,7 +85,7 @@ function GroupChatListPage() {
           </div>
         </div>
       </div>
-    </PageTemplate>
+    </>
   );
 }
 

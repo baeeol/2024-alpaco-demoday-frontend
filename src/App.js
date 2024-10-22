@@ -1,6 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { HomePage, GroupChatListPage, GroupChatPage } from "pages";
 import { createTheme, ThemeProvider } from "@mui/material";
+import { Navigation } from "pages";
+import PageTemplate from "components/page/PageTemplate";
 import styles from "./App.module.css";
 
 const theme = createTheme({
@@ -15,13 +17,14 @@ function App() {
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
-        <div>
+        <PageTemplate isFullScreen={true}>
+          <Navigation />
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/group-chat" element={<GroupChatListPage />} />
             <Route path="/group-chat/:groupChatId" element={<GroupChatPage />} />
           </Routes>
-        </div>
+        </PageTemplate>
       </ThemeProvider>
     </BrowserRouter>
   );
