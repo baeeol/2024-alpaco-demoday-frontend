@@ -1,5 +1,12 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { HomePage, GroupChatListPage, GroupChatPage } from "pages";
+import {
+  HomePage,
+  GroupChatListPage,
+  GroupChatPage,
+  QuestionListPage,
+  QuestionWritePage,
+  QuestionPage,
+} from "pages";
 import { createTheme, ThemeProvider } from "@mui/material";
 import { Navigation } from "pages";
 import PageTemplate from "components/page/PageTemplate";
@@ -23,6 +30,9 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/group-chat" element={<GroupChatListPage />} />
             <Route path="/group-chat/:groupChatId" element={<GroupChatPage />} />
+            <Route path="/question" element={<QuestionListPage />} />
+            <Route path="/question/write" element={<QuestionWritePage />} />
+            <Route path="/question/:questionId" element={<QuestionPage />} />
           </Routes>
         </PageTemplate>
       </ThemeProvider>

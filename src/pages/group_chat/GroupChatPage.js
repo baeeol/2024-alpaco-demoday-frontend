@@ -18,7 +18,6 @@ function GroupChatPage() {
       const messageDataList = await GroupChatRequest.findGroupChatMessage(
         params.groupChatId
       );
-      console.log(messageDataList);
       const messageList = messageDataList.map((messageData) => {
         return {
           speakerIsMe: false,

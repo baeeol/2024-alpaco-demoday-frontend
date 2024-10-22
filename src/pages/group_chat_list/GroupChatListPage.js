@@ -102,6 +102,7 @@ async function addGroupChat(addingGroupChatData) {
     return;
   }
 
+  await GroupChatRequest.addGroupChat(addingGroupChatData);
   window.location.reload();
 }
 
