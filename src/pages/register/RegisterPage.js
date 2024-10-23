@@ -8,6 +8,8 @@ function RegisterPage() {
   const [registerData, setRegisterData] = useState({
     nickname: "",
     name: "",
+    belongTo: "",
+    age: "",
     password: "",
     confirmPassword: "",
   });
@@ -41,6 +43,26 @@ function RegisterPage() {
         }}
       />
       <TextField
+        variant="outlined"
+        label="소속"
+        value={registerData.belongTo}
+        setValue={(v) => {
+          setRegisterData((prev) => {
+            return { ...prev, belongTo: v };
+          });
+        }}
+      />
+      <TextField
+        variant="outlined"
+        label="나이"
+        value={registerData.age}
+        setValue={(v) => {
+          setRegisterData((prev) => {
+            return { ...prev, age: v };
+          });
+        }}
+      />
+      <TextField
         type="password"
         variant="outlined"
         label="비밀번호"
@@ -67,8 +89,8 @@ function RegisterPage() {
 }
 
 async function Register(registerData) {
-  const { nickname, name, password, confirmPassword } = registerData;
-  if (!nickname || !name || !password || !confirmPassword) {
+  const { nickname, name, belongTo, age, password, confirmPassword } = registerData;
+  if (!nickname || !name || !belongTo || !age || !password || !confirmPassword) {
     alert("모두 작성하여 주십시오.");
     return;
   }
