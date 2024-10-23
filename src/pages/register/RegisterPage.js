@@ -103,9 +103,7 @@ async function Register(registerData) {
   try {
     await SubmitRequest.register(registerData);
     window.location.href = "/login";
-  } catch (e) {
-    console.log(e);
-  }
+  } catch (e) {}
 }
 
 export default RegisterPage;

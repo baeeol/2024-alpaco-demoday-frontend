@@ -11,7 +11,7 @@ function PageTemplate({ isFullScreen, children }) {
   useEffect(() => {
     if (location.pathname !== "/login" && location.pathname !== "/register") {
       const accessToken = getCookie("access-token");
-      if (!accessToken || !accessToken.id || !accessToken.name) {
+      if (!accessToken) {
         window.location.href = "/login";
       }
     }

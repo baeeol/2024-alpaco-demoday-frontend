@@ -53,7 +53,6 @@ async function login(loginData) {
     setCookie("access-token", accessToken);
     window.location.href = "/";
   } catch (e) {
-    console.log(e.response.data);
     const errMsg = e.response.data;
     switch (errMsg) {
       case "nickname or password is wrong":

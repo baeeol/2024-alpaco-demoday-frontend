@@ -68,8 +68,6 @@ async function sendMessageHandler(
   });
   setMessage("");
 
-  console.log(messageHistory);
-
   // 챗봇의 메시지를 가져올때까지 ... / 가져온 후 메시지 표시
   setChatList((prev) => {
     return [...prev].concat({ type: "text", speakerIsMe: false, data: { text: "..." } });
