@@ -1,8 +1,9 @@
 import { TextField as MUITextField } from "@mui/material";
 
-function TextField({ type, label, value, setValue }) {
+function TextField({ type, variant, label, value, setValue }) {
   return (
     <MUITextField
+      variant={variant}
       InputProps={{ style: { fontSize: "1.1rem" } }}
       InputLabelProps={{ style: { fontSize: "1.2rem" } }}
       type={type}

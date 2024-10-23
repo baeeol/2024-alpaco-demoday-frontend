@@ -6,10 +6,12 @@ import {
   QuestionListPage,
   QuestionWritePage,
   QuestionPage,
+  LoginPage,
+  RegisterPage,
 } from "pages";
 import { createTheme, ThemeProvider } from "@mui/material";
 import { Navigation } from "pages";
-import PageTemplate from "components/page/PageTemplate";
+import PageTemplate from "components/page/template/PageTemplate";
 import styles from "./App.module.css";
 
 const theme = createTheme({
@@ -27,7 +29,10 @@ function App() {
         <PageTemplate isFullScreen={true}>
           <Navigation />
           <Routes>
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
             <Route path="/" element={<HomePage />} />
+            <Route path="/group-chat" element={<GroupChatListPage />} />
             <Route path="/group-chat" element={<GroupChatListPage />} />
             <Route path="/group-chat/:groupChatId" element={<GroupChatPage />} />
             <Route path="/question" element={<QuestionListPage />} />

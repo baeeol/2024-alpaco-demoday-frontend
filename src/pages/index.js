@@ -5,6 +5,8 @@ import Navigation from "./semantic/navigation/Navigation";
 import QuestionListPage from "./question_list/QuestionListPage";
 import QuestionWritePage from "./question_write_page/QuestionWritePage";
 import QuestionPage from "./question_page/QuestionPage";
+import RegisterPage from "./register/RegisterPage";
+import LoginPage from "./login/LoginPage";
 
 export {
   HomePage,
@@ -14,4 +16,6 @@ export {
   QuestionListPage,
   QuestionWritePage,
   QuestionPage,
+  RegisterPage,
+  LoginPage,
 };

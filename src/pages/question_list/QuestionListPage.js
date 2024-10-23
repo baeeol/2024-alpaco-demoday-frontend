@@ -61,7 +61,6 @@ function QuestionListPage() {
 }
 
 async function loadQuestionList(searchKeyword, setGroupChatList) {
-  console.log(searchKeyword);
   const groupChatList = await QuestionRequest.findQuestionSummary(searchKeyword);
   setGroupChatList((prev) => {
     return groupChatList;
