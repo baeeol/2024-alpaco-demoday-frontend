@@ -37,6 +37,14 @@ function LoginPage() {
           });
         }}
       />
+      <button
+        className={styles.submitButton}
+        onClick={() => {
+          login(loginData);
+        }}
+      >
+        로그인
+      </button>
     </SubmitPageTemplate>
   );
 }

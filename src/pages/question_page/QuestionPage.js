@@ -24,13 +24,10 @@ function QuestionPage() {
         <div className={styles.QnA}>
           <div className={styles.questionContainer}>
             <div className={styles.textContainer}>
-              <div className={`${styles.text} ${styles.content} ${styles.title}`}>
-                {question.title}
-              </div>
-            </div>
-            <div className={styles.textContainer}>
-              <div className={`${styles.text} ${styles.content} ${styles.article}`}>
-                {question.article}
+              <div className={`${styles.text} ${styles.content}`}>
+                <div className={styles.title}>{question.title}</div>
+                <br />
+                <div className={styles.article}>{question.article}</div>
               </div>
             </div>
           </div>

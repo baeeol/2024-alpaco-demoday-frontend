@@ -1,4 +1,5 @@
 import { TextField as MUITextField } from "@mui/material";
+import styles from "./TextField.module.css";
 
 function TextField({ type, variant, label, value, setValue }) {
   return (
@@ -13,6 +14,7 @@ function TextField({ type, variant, label, value, setValue }) {
       onChange={(e) => {
         setValue(e.target.value);
       }}
+      className={styles.textField}
     />
   );
 }
