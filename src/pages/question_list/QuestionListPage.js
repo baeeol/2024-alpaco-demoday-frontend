@@ -43,16 +43,7 @@ function QuestionListPage() {
       <div className={styles.QuestionSummaryContainer}>
         <div className={styles.QuestionSummaryList}>
           {questionList.map((question, idx) => {
-            const { id, title, article, amountOfAnswers } = question;
-            return (
-              <QuestionSummary
-                key={idx}
-                id={id}
-                title={title}
-                article={article}
-                amountOfAnswers={amountOfAnswers}
-              />
-            );
+            return <QuestionSummary key={idx} question={question} />;
           })}
         </div>
       </div>

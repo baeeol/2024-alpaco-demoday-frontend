@@ -4,6 +4,8 @@ import styles from "./QuestionPage.module.css";
 import { SendingTextarea } from "components";
 import MapsUgcIcon from "@mui/icons-material/MapsUgc";
 import QuestionRequest from "api/QuestionRequest";
+import { Message } from "components";
+import { getCookie } from "lib/Cookie";
 
 function QuestionPage() {
   const [question, setQuestion] = useState({ title: "", article: "", answerList: [] });
@@ -32,11 +34,15 @@ function QuestionPage() {
             </div>
           </div>
           <div className={styles.answerContainer}>
-            {question.answerList.map((answer) => {
+            {question.answerList.map((answer, idx) => {
               return (
-                <div className={styles.textContainer}>
-                  <div className={`${styles.text} ${styles.answer}`}>{answer}</div>
-                </div>
+                <Message
+                  key={idx}
+                  isMyMessage={question.questioner.id === answer.answerer.id}
+                  commenter={`${answer.answerer.name} <${answer.answerer.interestPart}>`}
+                >
+                  {answer.article}
+                </Message>
               );
             })}
           </div>
