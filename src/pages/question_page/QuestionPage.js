@@ -39,7 +39,7 @@ function QuestionPage() {
                 <Message
                   key={idx}
                   isMyMessage={question.questioner.id === answer.answerer.id}
-                  commenter={`${answer.answerer.name} <${answer.answerer.interestPart}>`}
+                  commenter={`${answer.answerer.name} <${answer.answerer.belongTo} / ${answer.answerer.interestPart}>`}
                 >
                   {answer.article}
                 </Message>

@@ -22,7 +22,7 @@ function GroupChatPage() {
       );
       const messageList = messageDataList.map((messageData) => {
         const { commenter, message } = messageData;
-        const { id, name, interestPart } = commenter;
+        const { id, name, interestPart, belongTo } = commenter;
 
         return {
           speakerIsMe: id === getCookie("access-token").id,
@@ -30,6 +30,7 @@ function GroupChatPage() {
             commenter: {
               name: name,
               interestPart: interestPart,
+              belongTo: belongTo,
             },
             text: message,
           },
@@ -61,6 +62,7 @@ function GroupChatPage() {
             commenter: {
               name: data.name,
               interestPart: data.interestPart,
+              belongTo: data.belongTo,
             },
             text: data.message,
           },
@@ -81,7 +83,7 @@ function GroupChatPage() {
             <Message
               key={idx}
               isMyMessage={chat.speakerIsMe}
-              commenter={`${chat.data.commenter.name} <${chat.data.commenter.interestPart}>`}
+              commenter={`${chat.data.commenter.name} <${chat.data.commenter.belongTo} / ${chat.data.commenter.interestPart}>`}
             >
               {chat.data.text}
             </Message>
