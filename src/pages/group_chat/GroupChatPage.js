@@ -7,7 +7,7 @@ import useSocket from "hook/useSocket";
 import styles from "./GroupChatPage.module.css";
 import GroupChatRequest from "api/GroupChatRequest";
 import { getCookie } from "lib/Cookie";
-import { isMuiElement } from "@mui/material";
+import { BANNED_WORD } from "constant";
 
 function GroupChatPage() {
   const [chatList, setChatList] = useState([]);
@@ -32,7 +32,7 @@ function GroupChatPage() {
               interestPart: interestPart,
               belongTo: belongTo,
             },
-            text: message,
+            text: getCensoredMessage(message),
           },
         };
       });
@@ -60,11 +60,11 @@ function GroupChatPage() {
           speakerIsMe: false,
           data: {
             commenter: {
-              name: data.name,
-              interestPart: data.interestPart,
-              belongTo: data.belongTo,
+              name: data.commenter.name,
+              interestPart: data.commenter.interestPart,
+              belongTo: data.commenter.belongTo,
             },
-            text: data.message,
+            text: getCensoredMessage(data.text),
           },
         });
       });
@@ -102,8 +102,9 @@ function GroupChatPage() {
                 id: getCookie("access-token").id,
                 name: getCookie("access-token").name,
                 interestPart: getCookie("access-token").interestPart,
+                belongTo: getCookie("access-token").belongTo,
               },
-              message: message,
+              text: getCensoredMessage(message),
             };
 
             sendMessageHandler(messageData, setChatList, socket, params.groupChatId);
@@ -117,27 +118,27 @@ function GroupChatPage() {
   );
 }
 
-async function sendMessageHandler(messageData, setChatList, socket, groupChatId) {
-  const message = {
-    data: {
-      commenter: {
-        name: messageData.commenter.name,
-        interestPart: messageData.commenter.interestPart,
-      },
-      text: messageData.message,
-    },
-  };
-
+async function sendMessageHandler(message, setChatList, socket, groupChatId) {
   // 자신의 메시지 채팅창에 표시
   setChatList((prev) => {
-    return [...prev].concat({ speakerIsMe: true, ...message });
+    return [...prev].concat({ speakerIsMe: true, data: { ...message } });
   });
 
   // 다른 사람들에게 소켓으로 메시지 전송
   socket.emit("send", { ...message });
 
   // DB에 메시지 저장
-  GroupChatRequest.addGroupChatMessage(groupChatId, message);
+  GroupChatRequest.addGroupChatMessage(groupChatId, message.text);
+}
+
+function getCensoredMessage(message) {
+  let censoredMessage = message;
+
+  BANNED_WORD.forEach((word) => {
+    censoredMessage = censoredMessage.replace(word, "*".repeat(word.length));
+  });
+
+  return censoredMessage;
 }
 
 export default GroupChatPage;
