@@ -22,6 +22,9 @@ function ExaminationListPage() {
           link="/user/examination/hanyang-major-aptitude"
         />
       </div>
+      <div className={styles.noticeText}>
+        ------------- 설문 추가 예정입니다 -------------
+      </div>
     </div>
   );
 }
