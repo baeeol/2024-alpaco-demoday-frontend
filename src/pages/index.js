@@ -7,6 +7,8 @@ import QuestionWritePage from "./question_write_page/QuestionWritePage";
 import QuestionPage from "./question_page/QuestionPage";
 import RegisterPage from "./register/RegisterPage";
 import LoginPage from "./login/LoginPage";
+import ExaminationListPage from "./examination_list/ExaminationListPage";
+import Examination from "./examination/Examination";
 
 export {
   HomePage,
@@ -18,4 +20,6 @@ export {
   QuestionPage,
   RegisterPage,
   LoginPage,
+  ExaminationListPage,
+  Examination,
 };

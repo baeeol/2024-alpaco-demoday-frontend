@@ -1,0 +1,48 @@
+.area {
+}
+
+.area:nth-child(n + 2) {
+  margin: 1.5rem 0rem 0rem 0rem;
+}
+
+.name {
+  margin: 0rem 0rem 0.3rem 0rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #333333;
+}
+
+.level {
+  display: flex;
+  align-items: center;
+}
+
+.levelBarContainer {
+  width: 85%;
+  height: 0.6rem;
+  border: 2px solid #f95454;
+  margin: 0rem 1.5rem 0rem 0rem;
+}
+
+.levelBar {
+  height: 100%;
+  background-color: #f95454;
+}
+
+.levelText {
+  color: #f95454;
+  font-weight: 500;
+}
+
+.close {
+  width: 100%;
+  margin: 2.5rem 0rem 0rem 0rem;
+  padding: 0.3rem 0rem 0.3rem 0rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  background: none;
+  border: 2px solid #f95454;
+  color: #f95454;
+  border-radius: 8px;
+  cursor: pointer;
+}

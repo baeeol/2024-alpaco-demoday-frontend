@@ -3,6 +3,7 @@ import { SendingTextarea } from "components";
 import MapsUgcIcon from "@mui/icons-material/MapsUgc";
 import { useState, useEffect } from "react";
 import ChatbotRequest from "api/ChatbotRequest";
+import { Link } from "react-router-dom";
 import styles from "./HomePage.module.css";
 
 const MESSAGE_HISTORY_RANGE = 10;
@@ -33,23 +34,30 @@ function HomePage() {
         })}
       </ChatBoard>
       <div className={styles.messageInput}>
-        <SendingTextarea
-          maxRows={4}
-          placeholder={"무엇을 알고 싶으신가요?"}
-          value={message}
-          onChangeHandler={setMessage}
-          onSendHandler={() => {
-            sendMessageHandler(
-              message,
-              setMessage,
-              setChatList,
-              messageHistory,
-              setMessageHistory
-            );
-          }}
-          SendIcon={MapsUgcIcon}
-          options={{ isAllowEmptyMessage: false }}
-        />
+        <div className={styles.messageSender}>
+          <SendingTextarea
+            maxRows={4}
+            placeholder={"무엇을 알고 싶으신가요?"}
+            value={message}
+            onChangeHandler={setMessage}
+            onSendHandler={() => {
+              sendMessageHandler(
+                message,
+                setMessage,
+                setChatList,
+                messageHistory,
+                setMessageHistory
+              );
+            }}
+            SendIcon={MapsUgcIcon}
+            options={{ isAllowEmptyMessage: false }}
+          />
+        </div>
+        <div className={styles.examination}>
+          <Link to="/user/examination" className={styles.examinationLink}>
+            추가적인 검사를 통해 최적화된 답변을 받아보세요!
+          </Link>
+        </div>
       </div>
     </div>
   );

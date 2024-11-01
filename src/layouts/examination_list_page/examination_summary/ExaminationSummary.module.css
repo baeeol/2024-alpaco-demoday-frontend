@@ -1,0 +1,82 @@
+.examinationSummary {
+  display: flex;
+  flex-direction: column;
+  padding: 1.3rem;
+  text-decoration: none;
+}
+
+.examinationSummary:hover {
+  background-color: #fafafa;
+}
+
+.examinationSummary:nth-child(1) {
+  border-top: 2px solid #e2e2e2;
+}
+
+.examinationSummary:nth-child(n + 2) {
+  border-top: 2px solid #e2e2e2;
+}
+
+.examinationSummary:nth-last-child(1) {
+  border-bottom: 2px solid #e2e2e2;
+}
+
+.article {
+  margin: 0rem 0rem 1.2rem 0rem;
+}
+
+.name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #f95454;
+  margin: 0rem 0rem 0.5rem 0rem;
+}
+
+.description {
+  width: 95%;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #3f3f3f;
+  height: 3rem;
+}
+
+.info {
+  flex: 1;
+  display: flex;
+  padding: 0rem 1rem 0rem 0rem;
+}
+
+.info > div:nth-child(n + 2) {
+  margin: 0rem 0rem 0rem 1.2rem;
+}
+
+.infoTxt {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #272727;
+  font-weight: 500;
+}
+
+.icon {
+  color: #f95454;
+  margin: 0rem 0.6rem 0rem 0rem;
+  transform: scale(1.1);
+}
+
+.start {
+  width: 100%;
+  margin: 1.5rem 0rem 0rem 0rem;
+  padding: 0.4rem 0rem 0.4rem 0rem;
+  text-align: center;
+  background-color: #f95454;
+  border-radius: 8px;
+}
+
+.startBtn {
+  width: 100%;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 700;
+}

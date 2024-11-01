@@ -8,6 +8,8 @@ import {
   QuestionPage,
   LoginPage,
   RegisterPage,
+  ExaminationListPage,
+  Examination,
 } from "pages";
 import { createTheme, ThemeProvider } from "@mui/material";
 import { Navigation } from "pages";
@@ -38,6 +40,8 @@ function App() {
             <Route path="/question" element={<QuestionListPage />} />
             <Route path="/question/write" element={<QuestionWritePage />} />
             <Route path="/question/:questionId" element={<QuestionPage />} />
+            <Route path="/user/examination" element={<ExaminationListPage />} />
+            <Route path="/user/examination/:id" element={<Examination />} />
           </Routes>
         </PageTemplate>
       </ThemeProvider>
